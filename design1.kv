@@ -1,0 +1,117 @@
+ScreenManager:
+    Function:
+    Setting:
+
+<Function>:
+    
+       
+    
+    
+    
+    name:'function'
+    orientation: "vertical"
+
+    MDTopAppBar:
+        title: "PLENUM INFO SYS"
+        right_action_items: [["dots-vertical", lambda x: root.callback(root)]]
+        pos_hint: {"center_y":.96}
+            
+    MDBoxLayout:
+            
+        md_bg_color: 0, 128, 0, 0.1
+            
+           
+    Image:
+        source: "plenum3.png"
+        size_hint: None,None
+        width:"420px"
+        height:"420px"
+        pos_hint:{'center_x':.5,'center_y':.7}
+    
+       
+        
+    MDLabel:
+        id: value
+        text:""
+        font_style: 'H5'
+        halign:'center'
+           
+        pos_hint: {'center_y':.35}
+        
+    MDLabel:
+        id: pdate
+        text:"Prod Date"
+        font_style: 'H5'
+        halign:'center'
+           
+        pos_hint: {'center_x': .3, 'center_y': .5}
+            
+
+            
+
+    MDLabel:
+        id: edate
+        text:"Expiry date"
+        font_style: 'H5'
+        halign:'center'
+           
+        pos_hint: { 'center_x': .3, 'center_y': .35}
+    MDFloatingActionButton:
+
+        icon:"pencil"
+                
+        pos_hint: {'center_x': .1, 'center_y': .35}
+        on_release: root.show_date_picker1() 
+    MDFloatingActionButton:
+        icon:"pencil"
+        pos_hint: {'center_x': .1, 'center_y': .5}
+        on_release: root.show_date_picker2()
+    MDIconButton:
+        icon: "cog-outline"
+        style: "standard"
+        pos_hint: {'center_x': .1, 'center_y': .8}
+        on_release:root.settings()
+      
+    BoxLayout:
+        size_hint:(.9,.2)
+            
+        pos_hint: {"center_x":.5,"center_y":.3}
+        MDTextField:
+            id:content
+            multiline:True
+                
+            max_height: "100dp"
+            hint_text:"Scann Here.."
+                
+                
+                
+
+
+    MDRectangleFlatButton:
+        text: "Exit"
+        pos_hint: {'center_x':.7,'center_y':.1}
+        on_release: root.viewimg(root)
+    MDRectangleFlatButton:
+        text: "Print"
+        pos_hint: {'center_x':.3,'center_y':.1}
+        on_release: root.qrprint(root)
+<Setting>:
+    name:"setting"
+    BoxLayout:
+        size_hint:(.9,.2)
+            
+        pos_hint: {"center_x":.5,"center_y":.3}
+        MDTextField:
+            id:ipad
+            multiline:True
+                
+            max_height: "100dp"
+            hint_text:"Enter IP Address"
+        MDRectangleFlatButton:
+            text: "Set"
+            pos_hint: {'center_x':.3,'center_y':.3}
+            on_release: root.setip()
+        
+          
+
+          
